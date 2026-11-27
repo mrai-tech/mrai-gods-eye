@@ -20,11 +20,16 @@ jobs:
 
       # No setup-android step: ubuntu-latest already ships the Android SDK,
       # and setup-android v3 breaks on `sdkmanager tools` (package removed).
+      # No gradlew either: the wrapper download timed out on the runner, so
+      # use a cached system Gradle instead.
+      - name: Set up Gradle 8.7
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: "8.7"
+
       - name: Build debug APK
         working-directory: android
-        run: |
-          chmod +x gradlew
-          ./gradlew assembleDebug --stacktrace
+        run: gradle assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
