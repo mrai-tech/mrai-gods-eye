@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#05070D">
+
+    <!-- The globe itself: full screen, under the glass. -->
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Top glass pill + bottom glass dock, grouped so they fade together. -->
+    <FrameLayout
+        android:id="@+id/chrome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Top pill -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/glass_pill"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="18dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="10dp">
+
+            <View
+                android:layout_width="9dp"
+                android:layout_height="9dp"
+                android:background="@drawable/dot_live" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="GOD'S EYE"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.18" />
+
+            <TextView
+                android:id="@+id/clockText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="--:--:-- UTC"
+                android:textColor="#9BE8FF"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Bottom glass dock -->
+        <LinearLayout
+            android:id="@+id/dock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/glass_dock"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="8dp">
+
+            <ImageButton
+                android:id="@+id/btnHome"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:background="@drawable/dock_btn"
+                android:contentDescription="Home globe"
+                android:src="@drawable/ic_globe" />
+
+            <ImageButton
+                android:id="@+id/btnLayers"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/dock_btn"
+                android:contentDescription="Layers"
+                android:src="@drawable/ic_layers" />
+
+            <ImageButton
+                android:id="@+id/btnFullscreen"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/dock_btn"
+                android:contentDescription="Fullscreen"
+                android:src="@drawable/ic_fullscreen" />
+
+            <ImageButton
+                android:id="@+id/btnShare"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/dock_btn"
+                android:contentDescription="Share"
+                android:src="@drawable/ic_share" />
+
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/dock_btn"
+                android:contentDescription="Server settings"
+                android:src="@drawable/ic_settings" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Splash: covers everything until the first page loads. -->
+    <FrameLayout
+        android:id="@+id/splash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/splash_bg">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                android:background="@drawable/orb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="GOD'S EYE"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.22" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="the world, live — by Mrai"
+                android:textColor="#9BE8FF"
+                android:textSize="14sp" />
+
+            <ProgressBar
+                android:id="@+id/splashProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_gravity="center" />
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>

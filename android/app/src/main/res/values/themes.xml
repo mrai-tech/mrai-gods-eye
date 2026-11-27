@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.GodsEye" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#4FE3FF</item>
+        <item name="colorPrimaryDark">#05070D</item>
+        <item name="colorAccent">#4FE3FF</item>
+        <item name="android:statusBarColor">#05070D</item>
+        <item name="android:navigationBarColor">#05070D</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>
