@@ -18,9 +18,8 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
+      # No setup-android step: ubuntu-latest already ships the Android SDK,
+      # and setup-android v3 breaks on `sdkmanager tools` (package removed).
       - name: Build debug APK
         working-directory: android
         run: |
