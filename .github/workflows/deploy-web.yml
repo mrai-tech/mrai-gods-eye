@@ -33,11 +33,15 @@ jobs:
         working-directory: web
         run: |
           npm ci --no-audit --no-fund
-          # Pages serves the site under /mrai-gods-eye/, not the domain root,
-          # so the build must reference assets relatively to that subpath.
+          # Pages serves the site under /mrai-gods-eye/, not the domain root.
           # With the default base '/', /assets/*.js and /cesium/Cesium.js
           # 404'd and the globe never started (white page, frames 0/0).
-          npm run build -- --base=/mrai-gods-eye/
+          # base=/mrai-gods-eye/ was tried next and also failed: the Cesium
+          # plugin then copied Cesium to dist/mrai-gods-eye/cesium, so the
+          # live URL doubled to /mrai-gods-eye/mrai-gods-eye/cesium.
+          # Relative base './' keeps every asset under dist/ and makes all
+          # references relative, which works at any subpath.
+          npm run build -- --base=./
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
