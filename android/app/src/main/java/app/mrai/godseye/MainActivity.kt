@@ -70,6 +70,9 @@ class MainActivity : AppCompatActivity() {
             settings.mediaPlaybackRequiresUserGesture = false
             settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
             settings.cacheMode = WebSettings.LOAD_DEFAULT
+            // Dark from the first frame: a WebView defaults to white, so a
+            // slow or failed globe load showed a white page behind the shell.
+            setBackgroundColor(android.graphics.Color.parseColor("#05070D"))
             setLayerType(View.LAYER_TYPE_HARDWARE, null)
             webChromeClient = object : WebChromeClient() {
                 override fun onGeolocationPermissionsShowPrompt(
